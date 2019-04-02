@@ -3,7 +3,7 @@ package it.polito.tdp.toto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pronostico {
+public class Pronostico { //è insieme di previsioni possibili
 
 	private int N;
 	private List<Previsione> colonna;

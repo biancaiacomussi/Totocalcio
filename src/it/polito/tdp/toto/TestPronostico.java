@@ -2,7 +2,7 @@ package it.polito.tdp.toto;
 
 public class TestPronostico {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { //ho 16 espansioni possibili 2^5
 		Pronostico p = new Pronostico(5) ;
 		p.add(new Previsione(Risultato.DUE, Risultato.UNO));
 		p.add(new Previsione(Risultato.UNO, Risultato.ICS)) ;

@@ -3,7 +3,7 @@ package it.polito.tdp.toto;
 public class TestSchedina {
 
 	public static void main(String[] args) {
-		Schedina s = new Schedina(13) ;
+		Schedina s = new Schedina(13) ; //parametro è il numero di righe
 		
 		s.add(Risultato.UNO);
 		s.add(Risultato.UNO);

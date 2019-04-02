@@ -3,7 +3,7 @@ package it.polito.tdp.toto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Schedina {
+public class Schedina { //è una lista di risultati
 
 	private int N;
 

@@ -3,7 +3,7 @@ package it.polito.tdp.toto;
 public class Espandi {
 	
 	public void espandiPronostico(Pronostico p) {
-		Schedina parziale = new Schedina(p.getN()) ;
+		Schedina parziale = new Schedina(p.getN()) ; //ha dimensione massima pari alla dim max del pronostico
 		espandi(p, parziale, 0) ;
 	}
 	
@@ -13,31 +13,43 @@ public class Espandi {
 	// livello = 1 -> schedina con 1 risultato ...
 	
 	private void espandi(Pronostico p, Schedina parziale, int livello) {
+		//all'inizio devo passare una schedina vuota
+		//metodo privato
 		
-		// parziale contiene giÃ  (livello) valori 
+		//il problema da risolvere è il pronostico, cioè quello che ha dato l'utente
+		//riceve la schedina che è soluzione parziale a cui sono arrivata
+		//e il livello a cui sono arrivata
+		
+		// parziale contiene già  (livello) valori 
 		//		nelle posizioni 0...livello-1
 		// io devo determinare parziale[livello]
-		//		(cioÃ¨ la livello+1 esima riga)
-		// sulla base della previsione in p[livello]
+		//		(cioè la livello+1 esima riga)
+		// sulla base della previsione in pronostico[livello]
 		
 		
-		if(livello==p.getN()) {
+		
+		//mi fermo al livello in cui il pronostico è stato esaurito
+		
+		if(livello==p.getN()) { //la soluzione parziale è la soluzione totale, non devo più aggiungere elementi alla schedina
 			System.out.println(parziale) ;
 			return ;
 		}
 		
 		
-		Previsione prev = p.get(livello) ;
+		Previsione prev = p.get(livello) ; //previsioni che devo considerare
+		//la previsione è un insieme
 		
 		// prova le varie alternative
-		for(Risultato r: prev.getValori()) {
-			// provo ad aggiungere 'r'
+		for(Risultato r: prev.getValori()) { //itero sul set per ogni risultato
+			// provo ad aggiungere 'r' alla soluzione parziale
 			parziale.add(r);
 			
-			espandi(p, parziale, livello+1) ;
+			espandi(p, parziale, livello+1) ; //espando la stessa schedina parziale
 			
 			// backtrack
-			parziale.removeLast();
+			parziale.removeLast(); //dopo che ho aggiunto un elemento devo togliere
+			//la soluzione parziale deve essere come era prima
+			
 			
 		}
 		
